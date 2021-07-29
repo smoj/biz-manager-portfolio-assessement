@@ -1,0 +1,35 @@
+.text-brand {
+    color: #F09E28
+}
+
+.bg-brand {
+    background-color: #F09E28
+}
+.bg-brand.lighter {
+    background-color: #FEF3E0
+}
+
+.border-brand {
+    border-color: #F09E28;
+}
+
+.border-1 {
+    border-width: 1px;
+}
+
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-box-shadhow {
+    box-shadow: 0px 1px 3px #00000029;
+}
+
+.banner-image {
+    background: url('./img/profile-banner.png');
+    background-size: cover;
+}
+
+/* .breadcrumbs li {
+    list-style-type: disc;
+} */
