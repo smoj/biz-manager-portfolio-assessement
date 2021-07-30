@@ -1,8 +1,13 @@
 <template>
   <div>
+    <!-- Banner Image -->
     <div class="rounded-md bg-gray-600 h-32 mx-3 banner-image">.</div>
+
+    <!-- Profile Sidebar -->
     <div class="flex mx-10">
-      <div class="w-1/3 bg-white border-brand border-1 rounded -mt-24">
+      <div
+        class="w-96 fixed top-24 bg-white border-brand border-1 rounded mt-6"
+      >
         <div class="text-right p-3 text-xs">
           <button class="text-brand poppins-font">Hide</button>
         </div>
@@ -27,7 +32,10 @@
             </div>
             <div class="poppins-font flex-1">
               <h4 class="text-xl font-bold m-0">
-                <img class="h-4 w-4 mx-1 inline-block" src="https://via.placeholder.com/150x50" />13.1k
+                <img
+                  class="w-5 mx-1 inline-block"
+                  src="@/assets/img/heart-outline.png"
+                />13.1k
               </h4>
               <p class="text-xs m-0 text-gray-500">Total Likes</p>
             </div>
@@ -49,8 +57,8 @@
           </ul>
           <div class="flex justify-center items-center mb-2 mt-8">
             <img
-              class="h-4 w-4 mr-2"
-              src="https://via.placeholder.com/150x50"
+              class="h-7 w-7 mr-1"
+              src="@/assets/img/logo-share.png"
               alt=""
             /><a href="#" class="poppins-font text-sm flex-initial"
               >www.peexoo.ai/anijohnson</a
@@ -58,25 +66,17 @@
           </div>
           <div class="flex my-7 justify-center items-center">
             <button class="icon-button flex-initial">
-              <img
-                class="h-4 w-4"
-                src="https://via.placeholder.com/150x50/000000"
-                alt=""
-              />
+              <img class="h-4 w-4" src="@/assets/img/logo-twitter.png" alt="" />
             </button>
             <button class="icon-button flex-initial">
               <img
                 class="h-4 w-4"
-                src="https://via.placeholder.com/150x50/000000"
+                src="@/assets/img/logo-instagram.png"
                 alt=""
               />
             </button>
             <button class="icon-button flex-initial">
-              <img
-                class="h-4 w-4"
-                src="https://via.placeholder.com/150x50/000000"
-                alt=""
-              />
+              <img class="h-4 w-4" src="@/assets/img/logo-letter.png" alt="" />
             </button>
             <a
               href=""
@@ -92,33 +92,103 @@
               >Book Now</a
             >
           </div>
-          <div class="text-center flex justify-center items-center text-xs poppins-font">
+          <div
+            class="
+              text-center
+              flex
+              justify-center
+              brand-gray
+              items-center
+              text-xs
+              poppins-font
+            "
+          >
             <span class="flex-initial poppins-font">Built</span>
             <img
-              class="h-4 w-4 mx-1"
-              src="https://via.placeholder.com/150x50"
-              alt="" />
-            <span href="#" class="flex-initial poppins-font">
-               on peexoo
-            </span>
+              class="h-5 w-5 mx-1"
+              src="@/assets/img/logo-heart-filled.png"
+              alt=""
+            />
+            <span href="#" class="flex-initial poppins-font"> on peexoo </span>
           </div>
         </div>
       </div>
-      <div class="w-2/3 p-4">
-        <div class="block">
+      <div class="flex-1 ml-96 p-4">
+        <!-- submenu -->
+        <div class="block sticky submenu bg-off-white py-4">
           <button class="tab-button poppins-font active">Portfolio</button>
           <button class="tab-button poppins-font">Availability</button>
           <button class="tab-button poppins-font">Pricing Package</button>
         </div>
+        <!-- Dropdown -->
         <div class="flex text-sm">
-          <div class="px-3 py-2 poppins-font flex-grow text-right">
+          <div class="px-3 py-2 poppins-font brand-gray flex-grow text-right">
             Sort by Image Category
           </div>
           <div
-            class="px-3 py-2 poppins-font flex-initial bg-brand rounded lighter"
+            class="poppins-font flex-initial bg-brand rounded lighter"
           >
-            xx
+            <div class="group inline-block relative">
+              <button
+                class="
+                  drowdown-bg
+                  text-gray-700
+                  py-2
+                  px-4
+                  rounded
+                  inline-flex
+                  items-center
+                "
+              >
+                <span class="mr-2">All</span>
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+              <ul class="absolute hidden w-48 right-0 text-gray-700 pt-1 group-hover:block">
+                <li class="">
+                  <a
+                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                    href="#"
+                    >Food
+                  </a>
+                  <a
+                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                    href="#"
+                    >Wedding Images
+                  </a>
+                  <a
+                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                    href="#"
+                    >Portraits
+                  </a>
+                  <a
+                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                    href="#"
+                    >Model Shots
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
+        </div>
+
+        <!-- Masonry Content -->
+        <div class="block">
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
         </div>
       </div>
     </div>
