@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <div class="flex sticky top-0 items-center mx-0 mb-3 pt-3 pb-2 px-6 header-box-shadhow bg-white">
+    <div class="flex z-50 sticky top-0 items-center mx-0 mb-3 pt-3 pb-2 px-6 header-box-shadhow bg-white">
       <div>
         <img class="w-32" src="@/assets/img/logo.png" alt="">
       </div>

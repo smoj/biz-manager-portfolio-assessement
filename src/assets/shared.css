@@ -22,6 +22,10 @@
     border-color: #f09e28;
 }
 
+.border-gray-brand {
+  border-color: #EDEDED;
+}
+
 .border-1 {
     border-width: 1px;
 }
@@ -80,10 +84,53 @@
     @apply p-3 rounded-full mx-1;
   }
 
+  .icon-in-table {
+    background: #f7f7f7;
+  }
+
+  .day-cell-circle {
+    @apply rounded-full px-2 bg-brand text-white text-center
+  }
+
+  .day-cell-circle {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+
 /* .breadcrumbs li {
     list-style-type: disc;
 } */
 
 .overlay-bg {
   background: rgba(0, 0, 0, 0.87);
+}
+
+.cell-style {
+  @apply py-4 px-3 text-sm poppins-font
+}
+
+.cell-style {
+  color: #4d4d4d;
+  cursor: pointer;
+}
+
+tr.active .cell-style, tr:hover .cell-style {
+  background: white;
+}
+
+.day-cell {
+  @apply py-3 px-3 text-left font-normal poppins-font text-center text-sm
+}
+
+.day-cell {
+  color: #505050;
+}
+
+.day-cell.disabled {
+  color: #D4D4D4;
+}
+
+.week-header {
+  @apply border border-t-1 border-l-0 border-r-0 border-b-1 border-gray-brand
 }
