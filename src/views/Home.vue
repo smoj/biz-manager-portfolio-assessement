@@ -61,72 +61,74 @@
             <span class="text-brand">Portfolio</span>
           </a>
           <div :class="{'w-2/4': sidebarHidden, 'w-3/4': !sidebarHidden, 'justify-center': sidebarHidden}" class="flex">
-            <button class="tab-button poppins-font active">Portfolio</button>
-            <button class="tab-button poppins-font">Availability</button>
-            <button class="tab-button poppins-font">Pricing Package</button>
-          </div>
-        </div>
-        <!-- Dropdown -->
-        <div :class="{'hidden': sidebarHidden}" class="flex text-sm">
-          <div class="px-3 py-2 poppins-font brand-gray flex-grow text-right">
-            Sort by Image Category
-          </div>
-          <div
-            class="poppins-font flex-initial bg-brand rounded lighter"
-          >
-            <div class="group inline-block relative">
-              <button
-                class="
-                  drowdown-bg
-                  text-gray-700
-                  py-2
-                  px-4
-                  rounded
-                  inline-flex
-                  items-center
-                "
-              >
-                <span class="mr-2">All</span>
-                <svg
-                  class="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
-                </svg>
-              </button>
-              <ul class="absolute hidden w-48 right-0 text-gray-700 pt-1 group-hover:block">
-                <li class="">
-                  <a
-                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
-                    href="#"
-                    >Food
-                  </a>
-                  <a
-                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
-                    href="#"
-                    >Wedding Images
-                  </a>
-                  <a
-                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
-                    href="#"
-                    >Portraits
-                  </a>
-                  <a
-                    class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
-                    href="#"
-                    >Model Shots
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <button class="tab-button poppins-font" :class="{'active': tabs.portfolio}" @click="selectTab('portfolio')">Portfolio</button>
+            <button class="tab-button poppins-font" :class="{'active': tabs.availability}" @click="selectTab('availability')">Availability</button>
+            <button class="tab-button poppins-font" :class="{'active': tabs.pricing}" @click="selectTab('pricing')">Pricing Package</button>
           </div>
         </div>
 
-        <!-- Masonry Content -->
-        <div class="block mt-3">
+        <!-- Portfolio Content -->
+        <div v-show="tabs.portfolio" class="block">
+          <!-- Dropdown -->
+          <div :class="{'hidden': sidebarHidden}" class="flex text-sm mb-3">
+            <div class="px-3 py-2 poppins-font brand-gray flex-grow text-right">
+              Sort by Image Category
+            </div>
+            <div
+              class="poppins-font flex-initial bg-brand rounded lighter"
+            >
+              <div class="group inline-block relative">
+                <button
+                  class="
+                    drowdown-bg
+                    text-gray-700
+                    py-2
+                    px-4
+                    rounded
+                    inline-flex
+                    items-center
+                  "
+                >
+                  <span class="mr-2">All</span>
+                  <svg
+                    class="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </button>
+                <ul class="absolute hidden w-48 right-0 text-gray-700 pt-1 group-hover:block">
+                  <li class="">
+                    <a
+                      class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                      href="#"
+                      >Food
+                    </a>
+                    <a
+                      class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                      href="#"
+                      >Wedding Images
+                    </a>
+                    <a
+                      class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                      href="#"
+                      >Portraits
+                    </a>
+                    <a
+                      class="rounded-t bg-white py-2 px-4 block whitespace-no-wrap text-right"
+                      href="#"
+                      >Model Shots
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Masonry Content -->
           <div class="masonry-container">
             <figure>
               <img class="mason-image" src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
@@ -174,6 +176,17 @@
             </figure>
           </div>
         </div>
+
+        <!-- Availability Content -->
+        <div v-show="tabs.availability" class="block">
+          Availability Content
+        </div>
+
+        <!-- Pricing Content -->
+        <div v-show="tabs.pricing" class="block">
+          Pricing Content
+        </div>
+
       </div>
     </div>
   </div>
@@ -193,7 +206,17 @@ export default {
   data () {
     return {
       sidebarHidden: false,
-      showProfilePic: false
+      showProfilePic: false,
+      tabs: {
+        portfolio: true,
+        availability: false,
+        pricing: false
+      }
+    }
+  },
+  computed: {
+    getTabs () {
+      return Object.keys(this.tabs)
     }
   },
   methods: {
@@ -203,6 +226,15 @@ export default {
     },
     toggleProfilePic () {
       this.showProfilePic = !this.showProfilePic
+    },
+    selectTab (tabName) {
+      this.resetTabs()
+      this.$set(this.tabs, tabName, true)
+    },
+    resetTabs () {
+      this.getTabs.forEach((tab) => {
+        this.$set(this.tabs, tab, false)
+      })
     }
   }
 }
