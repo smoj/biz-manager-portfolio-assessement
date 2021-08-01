@@ -83,3 +83,7 @@
 /* .breadcrumbs li {
     list-style-type: disc;
 } */
+
+.overlay-bg {
+  background: rgba(0, 0, 0, 0.87);
+}

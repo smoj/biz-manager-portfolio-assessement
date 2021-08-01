@@ -1,11 +1,54 @@
 <template>
   <div>
+    <!-- Overlay Profile Picture -->
+    <transition
+        enter-active-class="animate__animated animate__fadeIn animate__faster"
+        leave-active-class="animate__animated animate__fadeOut animate__faster"
+      >
+      <div v-if="showProfilePic" class="z-50 fixed top-0 right-0 bottom-0 flex flex-col left-0 overlay-bg text-white">
+        <div class="w-32 mx-auto mt-8 mb-24">
+          <button @click="showProfilePic = !showProfilePic" class="px-4 py-2 text-white text-xs rounded-full font-bold poppins-font bg-white text-black close-btn">
+            close image
+          </button>
+        </div>
+        <img
+          class="w-72 h-72 mx-auto block"
+          src="@/assets/img/tim_mcbaj_53652000_2255623191378916_4966133143083590398_n@2x.png"
+          alt=""
+        />
+        <div class="v-spacer flex-1"></div>
+        <div class="
+                text-center
+                flex
+                justify-center
+                brand-gray
+                items-center
+                text-xs
+                poppins-font
+                my-5
+              "
+            >
+              <span class="flex-initial text-white poppins-font">Built for free</span>
+              <img
+                class="h-5 w-5 mx-1"
+                src="@/assets/img/logo-heart-filled.png"
+                alt=""
+              />
+              <span href="#" class="flex-initial text-white poppins-font"> on Peexoo </span>
+            </div>
+      </div>
+    </transition>
     <!-- Banner Image -->
     <div class="rounded-md bg-gray-600 h-32 mx-3 banner-image">.</div>
 
     <!-- Profile Sidebar -->
     <div class="flex mx-10">
-      <profile-sidebar @on-hidden="hideSidebar" :class="{'hidden': sidebarHidden, 'fixed': !sidebarHidden}" class="top-24" />
+      <transition
+        enter-active-class="animate__animated animate__fadeIn animate__faster"
+        leave-active-class="animate__animated animate__fadeOut animate__faster"
+      >
+        <profile-sidebar @on-show-profile-pic="toggleProfilePic" @on-hidden="hideSidebar" v-if="!sidebarHidden" :class="{'fixed': !sidebarHidden}" class="top-24" />
+      </transition>
       <div :class="{'ml-96' : !sidebarHidden}" class="flex-1 p-4">
         <!-- submenu -->
         <div class="block sticky submenu bg-off-white py-4 flex items-center">
@@ -86,43 +129,43 @@
         <div class="block mt-3">
           <div class="masonry-container">
             <figure>
-              <img src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
               <figcaption><a href="#">1</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/suspension-bridge.jpg" alt="The Clifton Suspension Bridge" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/suspension-bridge.jpg" alt="The Clifton Suspension Bridge" />
               <figcaption><a href="#">2</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/sunset.jpg" alt="Sunset and boats" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/sunset.jpg" alt="Sunset and boats" />
               <figcaption><a href="#">3</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/snowy.jpg" alt="a river in the snow" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/snowy.jpg" alt="a river in the snow" />
               <figcaption><a href="#">4</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/bristol-balloons1.jpg" alt="a single checked balloon" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons1.jpg" alt="a single checked balloon" />
               <figcaption><a href="#">5</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/dog-balloon.jpg" alt="a hot air balloon shaped like a dog" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/dog-balloon.jpg" alt="a hot air balloon shaped like a dog" />
               <figcaption><a href="#">6</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/abq-balloons.jpg" alt="View from a hot air balloon of other balloons" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/abq-balloons.jpg" alt="View from a hot air balloon of other balloons" />
               <figcaption><a href="#">7</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/disney-balloon.jpg" alt="a balloon fairground ride" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/disney-balloon.jpg" alt="a balloon fairground ride" />
               <figcaption><a href="#">8</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/bristol-harbor.jpg" alt="sunrise over a harbor" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/bristol-harbor.jpg" alt="sunrise over a harbor" />
               <figcaption><a href="#">9</a></figcaption>
             </figure>
             <figure>
-              <img src="https://assets.codepen.io/12005/bristol-balloons2.jpg" alt="three hot air balloons in a blue sky" />
+              <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons2.jpg" alt="three hot air balloons in a blue sky" />
               <figcaption><a href="#">10</a></figcaption>
             </figure>
             <figure>
@@ -138,6 +181,7 @@
 
 <script>
 import ProfileSidebar from '@/components/profileSidebar.vue'
+import 'animate.css'
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
@@ -148,13 +192,17 @@ export default {
   },
   data () {
     return {
-      sidebarHidden: false
+      sidebarHidden: false,
+      showProfilePic: false
     }
   },
   methods: {
     hideSidebar () {
       console.log('sidebar hide activated')
       this.sidebarHidden = !this.sidebarHidden
+    },
+    toggleProfilePic () {
+      this.showProfilePic = !this.showProfilePic
     }
   }
 }
@@ -192,5 +240,14 @@ figcaption {
 .masonry-container {
   column-count: 3;
   column-gap: 10px;
+}
+.mason-image {
+  @apply rounded-md
+}
+.mason-image:hover {
+  border: 1px solid #f09e28;
+}
+.close-btn {
+  background-color: rgba(255,255,255,.09);
 }
 </style>

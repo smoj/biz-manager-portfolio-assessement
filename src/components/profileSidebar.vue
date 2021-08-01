@@ -6,11 +6,13 @@
           <button @click="hideSidebar()" class="text-brand poppins-font">Hide</button>
         </div>
         <div class="text-center pb-8 px-8">
-          <img
-            class="w-24 h-24 inline-block"
-            src="@/assets/img/tim_mcbaj_53652000_2255623191378916_4966133143083590398_n.png"
-            alt=""
-          />
+          <a @click="showProfilePic()" href="#">
+            <img
+              class="w-24 h-24 inline-block"
+              src="@/assets/img/tim_mcbaj_53652000_2255623191378916_4966133143083590398_n.png"
+              alt=""
+            />
+          </a>
           <h4 class="text-2xl font-semibold mt-3 mb-1 poppins-font">
             Ekemini Mark
           </h4>
@@ -125,6 +127,9 @@ export default {
   methods: {
     hideSidebar () {
       this.$emit('on-hidden')
+    },
+    showProfilePic () {
+      this.$emit('on-show-profile-pic')
     }
   }
 }
