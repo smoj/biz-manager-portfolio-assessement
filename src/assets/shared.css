@@ -44,6 +44,42 @@
     color: #4d4d4d;
 }
 
+.tab-button {
+    @apply py-2 px-5 rounded-full mr-2 text-sm;
+  }
+  .tab-button:hover,
+  .tab-button.active {
+    background: #fef3e0;
+    @apply font-bold;
+  }
+  .breadcrumbs li {
+    position: relative;
+    @apply flex-initial pr-3 mr-2;
+  }
+  .breadcrumbs li:first-of-type {
+    @apply text-gray-400;
+  }
+  .breadcrumbs.bulleted li:last-of-type::before {
+    background: transparent;
+  }
+  .breadcrumbs li.fix {
+    @apply mr-3;
+  }
+  .breadcrumbs.bulleted li::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    right: 0;
+    top: 6px;
+    background: black;
+    border-radius: 500px;
+  }
+  .icon-button {
+    background: #f7f7f7;
+    @apply p-3 rounded-full mx-1;
+  }
+
 /* .breadcrumbs li {
     list-style-type: disc;
 } */

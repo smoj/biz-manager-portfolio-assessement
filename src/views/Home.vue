@@ -5,123 +5,26 @@
 
     <!-- Profile Sidebar -->
     <div class="flex mx-10">
-      <div
-        class="w-96 fixed top-24 bg-white border-brand border-1 rounded mt-6"
-      >
-        <div class="text-right p-3 text-xs">
-          <button class="text-brand poppins-font">Hide</button>
-        </div>
-        <div class="text-center pb-8 px-8">
-          <img
-            class="w-24 h-24 inline-block"
-            src="@/assets/img/tim_mcbaj_53652000_2255623191378916_4966133143083590398_n.png"
-            alt=""
-          />
-          <h4 class="text-2xl font-semibold mt-3 mb-1 poppins-font">
-            Ekemini Mark
-          </h4>
-          <p class="text-xs leading-5 poppins-font">
-            I’m a wedding and portrait photographer based in Lagos, Nigeria.
-            I’ve been shooting weddings since I was in high school (before I
-            ever had my driver’s license!).
-          </p>
-          <div class="flex my-5">
-            <div class="poppins-font flex-1">
-              <h4 class="text-xl font-bold m-0">22.1k</h4>
-              <p class="text-xs m-0 text-gray-500">Total Views</p>
-            </div>
-            <div class="poppins-font flex-1">
-              <h4 class="text-xl font-bold m-0">
-                <img
-                  class="w-5 mx-1 inline-block"
-                  src="@/assets/img/heart-outline.png"
-                />13.1k
-              </h4>
-              <p class="text-xs m-0 text-gray-500">Total Likes</p>
-            </div>
-            <div class="poppins-font flex-1">
-              <h4 class="text-xl font-bold m-0">Sony 92J</h4>
-              <p class="text-xs m-0 text-gray-500">Camera Lens</p>
-            </div>
-          </div>
-          <ul class="flex breadcrumbs bulleted poppins-font text-xs my-2">
-            <li>Category</li>
-            <li>Food</li>
-            <li>Portrait</li>
-            <li>Wedding</li>
-            <li>Model</li>
-          </ul>
-          <ul class="flex breadcrumbs poppins-font text-xs my-2">
-            <li class="fix">Location</li>
-            <li>Lagos, Nigeria</li>
-          </ul>
-          <div class="flex justify-center items-center mb-2 mt-8">
+      <profile-sidebar @on-hidden="hideSidebar" :class="{'hidden': sidebarHidden, 'fixed': !sidebarHidden}" class="top-24" />
+      <div :class="{'ml-96' : !sidebarHidden}" class="flex-1 p-4">
+        <!-- submenu -->
+        <div class="block sticky submenu bg-off-white py-4 flex items-center">
+          <a href="#" @click="sidebarHidden = false" :class="{'hidden' : !sidebarHidden}" class="text-left w-1/4">
             <img
-              class="h-7 w-7 mr-1"
-              src="@/assets/img/logo-share.png"
-              alt=""
-            /><a href="#" class="poppins-font text-sm flex-initial"
-              >www.peexoo.ai/anijohnson</a
-            >
-          </div>
-          <div class="flex my-7 justify-center items-center">
-            <button class="icon-button flex-initial">
-              <img class="h-4 w-4" src="@/assets/img/logo-twitter.png" alt="" />
-            </button>
-            <button class="icon-button flex-initial">
-              <img
-                class="h-4 w-4"
-                src="@/assets/img/logo-instagram.png"
-                alt=""
-              />
-            </button>
-            <button class="icon-button flex-initial">
-              <img class="h-4 w-4" src="@/assets/img/logo-letter.png" alt="" />
-            </button>
-            <a
-              href=""
-              class="
-                px-4
-                py-2
-                rounded-full
-                mx-1
-                bg-brand
-                poppins-font
-                text-white text-sm
-              "
-              >Book Now</a
-            >
-          </div>
-          <div
-            class="
-              text-center
-              flex
-              justify-center
-              brand-gray
-              items-center
-              text-xs
-              poppins-font
-            "
-          >
-            <span class="flex-initial poppins-font">Built</span>
-            <img
-              class="h-5 w-5 mx-1"
-              src="@/assets/img/logo-heart-filled.png"
+              class="w-10 h-10 mr-2 inline-block"
+              src="@/assets/img/tim_mcbaj_53652000_2255623191378916_4966133143083590398_n.png"
               alt=""
             />
-            <span href="#" class="flex-initial poppins-font"> on peexoo </span>
+            <span class="text-brand">Portfolio</span>
+          </a>
+          <div :class="{'w-2/4': sidebarHidden, 'w-3/4': !sidebarHidden, 'justify-center': sidebarHidden}" class="flex">
+            <button class="tab-button poppins-font active">Portfolio</button>
+            <button class="tab-button poppins-font">Availability</button>
+            <button class="tab-button poppins-font">Pricing Package</button>
           </div>
         </div>
-      </div>
-      <div class="flex-1 ml-96 p-4">
-        <!-- submenu -->
-        <div class="block sticky submenu bg-off-white py-4">
-          <button class="tab-button poppins-font active">Portfolio</button>
-          <button class="tab-button poppins-font">Availability</button>
-          <button class="tab-button poppins-font">Pricing Package</button>
-        </div>
         <!-- Dropdown -->
-        <div class="flex text-sm">
+        <div :class="{'hidden': sidebarHidden}" class="flex text-sm">
           <div class="px-3 py-2 poppins-font brand-gray flex-grow text-right">
             Sort by Image Category
           </div>
@@ -180,15 +83,53 @@
         </div>
 
         <!-- Masonry Content -->
-        <div class="block">
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
-          <div class="w-48 h-48 bg-gray-400 mx-2"></div>
+        <div class="block mt-3">
+          <div class="masonry-container">
+            <figure>
+              <img src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
+              <figcaption><a href="#">1</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/suspension-bridge.jpg" alt="The Clifton Suspension Bridge" />
+              <figcaption><a href="#">2</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/sunset.jpg" alt="Sunset and boats" />
+              <figcaption><a href="#">3</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/snowy.jpg" alt="a river in the snow" />
+              <figcaption><a href="#">4</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/bristol-balloons1.jpg" alt="a single checked balloon" />
+              <figcaption><a href="#">5</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/dog-balloon.jpg" alt="a hot air balloon shaped like a dog" />
+              <figcaption><a href="#">6</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/abq-balloons.jpg" alt="View from a hot air balloon of other balloons" />
+              <figcaption><a href="#">7</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/disney-balloon.jpg" alt="a balloon fairground ride" />
+              <figcaption><a href="#">8</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/bristol-harbor.jpg" alt="sunrise over a harbor" />
+              <figcaption><a href="#">9</a></figcaption>
+            </figure>
+            <figure>
+              <img src="https://assets.codepen.io/12005/bristol-balloons2.jpg" alt="three hot air balloons in a blue sky" />
+              <figcaption><a href="#">10</a></figcaption>
+            </figure>
+            <figure>
+            <img src="https://assets.codepen.io/12005/toronto.jpg" alt="the Toronto light up sign at night" />
+              <figcaption><a href="#">11</a></figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -196,50 +137,60 @@
 </template>
 
 <script>
+import ProfileSidebar from '@/components/profileSidebar.vue'
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {}
+  components: {
+    ProfileSidebar
+  },
+  data () {
+    return {
+      sidebarHidden: false
+    }
+  },
+  methods: {
+    hideSidebar () {
+      console.log('sidebar hide activated')
+      this.sidebarHidden = !this.sidebarHidden
+    }
+  }
 }
 </script>
 
 <style lang="postcss" scoped>
-/* @import '../assets/shared.css' */
-.tab-button {
-  @apply py-2 px-5 rounded-full mr-2 text-sm;
+figure {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
 }
-.tab-button:hover,
-.tab-button.active {
-  background: #fef3e0;
-  @apply font-bold;
+
+figure > img {
+  grid-row: 1 / -1;
+  grid-column: 1;
+  max-width: 100%;
+  display: block;
 }
-.breadcrumbs li {
-  position: relative;
-  @apply flex-initial pr-3 mr-2;
+
+figure a {
+  color: black;
+  text-decoration: none;
 }
-.breadcrumbs li:first-of-type {
-  @apply text-gray-400;
+
+figcaption {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: rgba(255,255,255,.5);
+  padding: .2em .5em;
+  justify-self: start;
 }
-.breadcrumbs.bulleted li:last-of-type::before {
-  background: transparent;
-}
-.breadcrumbs li.fix {
-  @apply mr-3;
-}
-.breadcrumbs.bulleted li::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  right: 0;
-  top: 6px;
-  background: black;
-  border-radius: 500px;
-}
-.icon-button {
-  background: #f7f7f7;
-  @apply p-3 rounded-full mx-1;
+
+.masonry-container {
+  column-count: 3;
+  column-gap: 10px;
 }
 </style>
