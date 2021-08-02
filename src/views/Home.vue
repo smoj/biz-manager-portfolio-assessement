@@ -203,47 +203,60 @@
             <figure @click="showPictureGallery = true">
               <img class="w-7 h-7 z-10 mr-2 mt-2 mason-icon" src="@/assets/img/orange-heart.png" alt="">
               <img class="mason-image" src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
-              <figcaption><a href="#">1</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/suspension-bridge.jpg" alt="The Clifton Suspension Bridge" />
-              <figcaption><a href="#">2</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
+              <img class="w-7 h-7 z-10 mr-2 mt-2 mason-icon" src="@/assets/img/orange-heart.png" alt="">
               <img class="mason-image" src="https://assets.codepen.io/12005/sunset.jpg" alt="Sunset and boats" />
-              <figcaption><a href="#">3</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/snowy.jpg" alt="a river in the snow" />
-              <figcaption><a href="#">4</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons1.jpg" alt="a single checked balloon" />
-              <figcaption><a href="#">5</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/dog-balloon.jpg" alt="a hot air balloon shaped like a dog" />
-              <figcaption><a href="#">6</a></figcaption>
+              <figcaption>
+                <div class="flex-initial flex items-center p-3 bg-white rounded-b-md">
+                  <div class="flex-grow w-1/4"></div>
+                  <span class="mx-4 flex items-center">
+                    <img class="h-3 w-3 mr-1" src="@/assets/img/heart-outline.png" alt="" />
+                    <span class="text-sm">
+                      5,349
+                    </span>
+                  </span>
+                  <span class="mx-4 flex items-center">
+                    <img class="h-3 w-3 mr-1" src="@/assets/img/heart-crossed-outline.png" alt="" />
+                    <span class="text-sm">
+                      23
+                    </span>
+                  </span>
+                  <span class="mx-4 flex items-center">
+                    <img class="h-5 w-5 mr-1" src="@/assets/img/eye-outline.png" alt="" />
+                    <span class="text-sm">
+                      24,023
+                    </span>
+                  </span>
+                </div>
+              </figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/abq-balloons.jpg" alt="View from a hot air balloon of other balloons" />
-              <figcaption><a href="#">7</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/disney-balloon.jpg" alt="a balloon fairground ride" />
-              <figcaption><a href="#">8</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-harbor.jpg" alt="sunrise over a harbor" />
-              <figcaption><a href="#">9</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons2.jpg" alt="three hot air balloons in a blue sky" />
-              <figcaption><a href="#">10</a></figcaption>
             </figure>
             <figure @click="showPictureGallery = true">
             <img src="https://assets.codepen.io/12005/toronto.jpg" alt="the Toronto light up sign at night" />
-              <figcaption><a href="#">11</a></figcaption>
             </figure>
           </div>
         </div>
@@ -484,7 +497,7 @@ export default {
     return {
       sidebarHidden: false,
       showProfilePic: false,
-      showPictureGallery: true,
+      showPictureGallery: false,
       tabs: {
         portfolio: true,
         availability: false,
@@ -526,6 +539,7 @@ figure {
   grid-template-rows: 1fr auto;
   margin-bottom: 10px;
   break-inside: avoid;
+  cursor: pointer;
 }
 
 figure .mason-icon {
@@ -548,7 +562,8 @@ figcaption {
   grid-row: 2;
   grid-column: 1;
   background-color: rgba(255,255,255,.5);
-  padding: .2em .5em;
+  /* padding: .2em .5em; */
+  border: 1px solid transparent;
   justify-self:stretch;
 }
 
