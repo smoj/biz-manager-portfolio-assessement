@@ -1,5 +1,74 @@
 <template>
   <div>
+    <!-- Overlay Pictue Carousel -->
+    <transition
+        enter-active-class="animate__animated animate__fadeIn animate__faster"
+        leave-active-class="animate__animated animate__fadeOut animate__faster"
+      >
+      <div v-if="showPictureGallery" class="z-50 fixed top-0 right-0 bottom-0 flex flex-col left-0 overlay-bg text-white">
+        <div class="w-32 mx-auto my-8 text-center">
+          <button @click="showPictureGallery = !showPictureGallery" class="px-4 py-2 text-white text-xs rounded-full font-bold poppins-font bg-white text-black close-btn">
+            close
+          </button>
+        </div>
+        <img
+          class="w-2/5 mx-auto block rounded-md"
+          src="@/assets/img/gallery-big-image.jpg"
+          alt=""
+        />
+        <div class="mx-auto rounded-b-md w-2/5">
+          <div class="text-black flex items-center poppins-font">
+              <div class="flex-initial flex items-center p-3 bg-white rounded-b-md">
+                <div class="p-2 flex-initial gallery-meta-icon-bg rounded-full mx-1 mr-2">
+                  <img class="h-3 w-3" src="@/assets/img/heart-outline.png" alt="" />
+                </div>
+                <div class="p-2 flex-initial rounded-full mx-1 gallery-meta-icon-bg mr-2">
+                  <img class="h-3 w-3" src="@/assets/img/heart-crossed-outline.png" alt="" />
+                </div>
+                <span class="mx-4 flex items-center">
+                  <img class="h-3 w-3 mr-1" src="@/assets/img/heart-outline.png" alt="" />
+                  <span class="text-sm">
+                    5,349
+                  </span>
+                </span>
+                <span class="mx-4 flex items-center">
+                  <img class="h-3 w-3 mr-1" src="@/assets/img/heart-crossed-outline.png" alt="" />
+                  <span class="text-sm">
+                    23
+                  </span>
+                </span>
+                <span class="mx-4 flex items-center">
+                  <img class="h-5 w-5 mr-1" src="@/assets/img/eye-outline.png" alt="" />
+                  <span class="text-sm">
+                    24,023
+                  </span>
+                </span>
+              </div>
+          </div>
+        </div>
+        <div class="v-spacer flex-1"></div>
+        <div class="
+                text-center
+                flex
+                justify-center
+                brand-gray
+                items-center
+                text-xs
+                poppins-font
+                my-5
+              "
+            >
+              <span class="flex-initial text-white poppins-font">Built for free</span>
+              <img
+                class="h-5 w-5 mx-1"
+                src="@/assets/img/logo-heart-filled.png"
+                alt=""
+              />
+              <span href="#" class="flex-initial text-white poppins-font"> on Peexoo </span>
+            </div>
+      </div>
+    </transition>
+
     <!-- Overlay Profile Picture -->
     <transition
         enter-active-class="animate__animated animate__fadeIn animate__faster"
@@ -38,6 +107,7 @@
             </div>
       </div>
     </transition>
+
     <!-- Banner Image -->
     <div class="rounded-md bg-gray-600 h-32 mx-3 banner-image">.</div>
 
@@ -130,48 +200,48 @@
 
           <!-- Masonry Content -->
           <div class="masonry-container">
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="w-7 h-7 z-10 mr-2 mt-2 mason-icon" src="@/assets/img/orange-heart.png" alt="">
               <img class="mason-image" src="https://assets.codepen.io/12005/windmill.jpg" alt="A windmill" />
               <figcaption><a href="#">1</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/suspension-bridge.jpg" alt="The Clifton Suspension Bridge" />
               <figcaption><a href="#">2</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/sunset.jpg" alt="Sunset and boats" />
               <figcaption><a href="#">3</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/snowy.jpg" alt="a river in the snow" />
               <figcaption><a href="#">4</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons1.jpg" alt="a single checked balloon" />
               <figcaption><a href="#">5</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/dog-balloon.jpg" alt="a hot air balloon shaped like a dog" />
               <figcaption><a href="#">6</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/abq-balloons.jpg" alt="View from a hot air balloon of other balloons" />
               <figcaption><a href="#">7</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/disney-balloon.jpg" alt="a balloon fairground ride" />
               <figcaption><a href="#">8</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-harbor.jpg" alt="sunrise over a harbor" />
               <figcaption><a href="#">9</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
               <img class="mason-image" src="https://assets.codepen.io/12005/bristol-balloons2.jpg" alt="three hot air balloons in a blue sky" />
               <figcaption><a href="#">10</a></figcaption>
             </figure>
-            <figure>
+            <figure @click="showPictureGallery = true">
             <img src="https://assets.codepen.io/12005/toronto.jpg" alt="the Toronto light up sign at night" />
               <figcaption><a href="#">11</a></figcaption>
             </figure>
@@ -180,7 +250,7 @@
 
         <!-- Availability Content -->
         <div v-show="tabs.availability" class="block">
-          <div class="flex items-center mx-24 my-10">
+          <div :class="{'mx-24': !sidebarHidden}" class="flex items-center my-10">
             <div class="mr-8">
               <button class="p-2 icon-in-table rounded-full mx-1 flex-initial">
                 <img class="h-6 w-6" src="@/assets/img/icon-arrow-left.png" alt="" />
@@ -239,6 +309,16 @@
                   </tr>
                 </tbody>
               </table>
+              <ul class="legend text-sm my-10">
+                <li class="poppins-font">
+                  <span class="inline-block mr-2 mb-1 text-brand">Booked</span>
+                  <span class="inline-block mr-2 mb-1 text-lightest-gray">Orange shaded dates are booked days</span>
+                </li>
+                <li class="poppins-font">
+                  <span class="inline-block mr-2 mb-1">Available</span>
+                  <span class="inline-block mr-2 mb-1 text-lightest-gray">Unshaded dates are free days</span>
+                </li>
+              </ul>
             </div>
             <div class="ml-8">
               <button class="p-2 icon-in-table rounded-full mx-1 flex-initial">
@@ -353,6 +433,35 @@
               </tr>
             </tbody>
           </table>
+          <div class="flex bg-white py-4 px-3">
+            <button class="border border-1 px-3 py-2 poppins-font text-sm flex items-center">
+              <span class="text-light-gray">Select Addons</span>
+              <svg
+                class="fill-current h-4 w-4 ml-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+            </button>
+            <div class="flex-grow"></div>
+            <a
+              href="#"
+              class="
+                px-4
+                py-2
+                rounded-full
+                mx-1
+                bg-brand
+                poppins-font
+                text-white text-sm
+                flex-initial
+              "
+              >Select Package
+            </a>
+          </div>
         </div>
 
       </div>
@@ -375,6 +484,7 @@ export default {
     return {
       sidebarHidden: false,
       showProfilePic: false,
+      showPictureGallery: true,
       tabs: {
         portfolio: true,
         availability: false,
@@ -454,5 +564,8 @@ figcaption {
 }
 .close-btn {
   background-color: rgba(255,255,255,.09);
+}
+.gallery-meta-icon-bg {
+  background: #F5F5F5;
 }
 </style>

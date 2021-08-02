@@ -89,15 +89,16 @@
   }
 
   .day-cell-circle {
-    @apply rounded-full px-2 bg-brand text-white text-center
+    @apply rounded-full w-8 h-8 bg-brand text-white text-center
   }
 
   .day-cell-circle {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding: 0.35rem 0.3rem 0.3rem 0.3rem;
   }
 
-
+  .legend li {
+    list-style-type: disc;
+  }
 /* .breadcrumbs li {
     list-style-type: disc;
 } */
@@ -123,11 +124,11 @@ tr.active .cell-style, tr:hover .cell-style {
   @apply py-3 px-3 text-left font-normal poppins-font text-center text-sm
 }
 
-.day-cell {
-  color: #505050;
+.day-cell, .text-light-gray {
+  color: #4d4d4d;
 }
 
-.day-cell.disabled {
+.day-cell.disabled, .text-lightest-gray {
   color: #D4D4D4;
 }
 
