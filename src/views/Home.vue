@@ -12,11 +12,11 @@
           </button>
         </div>
         <img
-          class="w-2/5 mx-auto block rounded-md"
+          class="w-1/3 mx-auto block rounded-md"
           src="@/assets/img/gallery-big-image.jpg"
           alt=""
         />
-        <div class="mx-auto rounded-b-md w-2/5">
+        <div class="mx-auto rounded-b-md w-1/3">
           <div class="text-black flex items-center poppins-font">
               <div class="flex-initial flex items-center p-3 bg-white rounded-b-md">
                 <div class="p-2 flex-initial gallery-meta-icon-bg rounded-full mx-1 mr-2">
@@ -46,7 +46,9 @@
               </div>
           </div>
         </div>
-        <div class="v-spacer flex-1"></div>
+        <div class="v-spacer flex-1 py-2"></div>
+        <carousel />
+        <div class="v-spacer flex-1 py-2"></div>
         <div class="
                 text-center
                 flex
@@ -421,12 +423,12 @@
             <tbody>
               <tr>
                 <td class="w-2/5 cell-style bg-white text-left">
-                  <flex class="items-center">
+                  <div class="flex items-center">
                     <button class="p-2 icon-in-table rounded-full mr-2 flex-initial">
                       <img class="h-2 w-2" src="@/assets/img/logo-twitter.png" alt="" />
                     </button>
                     <span class="flex-1">Confetti and Flowers</span>
-                  </flex>
+                  </div>
                 </td>
                 <td class="w-1/5 cell-style bg-white text-center">2</td>
                 <td class="w-1/5 cell-style bg-white text-left">3000</td>
@@ -484,6 +486,7 @@
 
 <script>
 import ProfileSidebar from '@/components/profileSidebar.vue'
+import Carousel from '@/components/carousel.vue'
 import 'animate.css'
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
@@ -491,7 +494,8 @@ import 'animate.css'
 export default {
   name: 'Home',
   components: {
-    ProfileSidebar
+    ProfileSidebar,
+    Carousel
   },
   data () {
     return {

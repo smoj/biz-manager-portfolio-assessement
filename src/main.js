@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import '@/assets/tailwind.css'
 import '@/assets/shared.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
